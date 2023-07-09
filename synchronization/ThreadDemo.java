@@ -12,7 +12,8 @@ public class ThreadDemo extends Thread {
     @Override
     public void run() {
         try {
-            display.wish(name);
+            display.greet(name);
+//            display.wish(name);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

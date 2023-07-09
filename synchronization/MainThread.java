@@ -14,9 +14,15 @@ public class MainThread {
         ThreadDemo secondThread = new ThreadDemo(display, "Rohit");
         ThreadDemo thirdThread = new ThreadDemo(display, "sandip");
         ThreadDemo forthThread = new ThreadDemo(display, "gulsan");
-        thread.start();
-        secondThread.start();
-        thirdThread.start();
-        forthThread.start();
+//        thread.start();
+//        secondThread.start();
+//        thirdThread.start();
+//        forthThread.start();
+
+        //synchronization of block
+        ThreadDemo newThread = new ThreadDemo(display, "kushal");
+        ThreadDemo secondNewThread = new ThreadDemo(display, "Rohit");
+        newThread.start();
+        secondNewThread.start();
     }
 }
