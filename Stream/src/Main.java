@@ -82,9 +82,31 @@ public class Main {
             return null;
         })));
         for (String key : allGrouped.keySet()) {
-           allGrouped.get(key).forEach(p->{
-               System.out.println(key + " " + p.toString());
-           });
+            allGrouped.get(key).forEach(p -> {
+                System.out.println(key + " " + p.toString());
+            });
         }
+
+        /*  You have a list of Product objects, each containing a name and a price.
+         How can you use the Stream API to group products by price range and then calculate the average price for each price range?*/
+
+        Map<String, List<Product>> groupByProduct = productList.stream().collect(groupingBy((product -> {
+            if (product.getPrice() <= 500) {
+                return "low";
+            }
+            if (product.getPrice() > 500 && product.getPrice() < 1000) {
+                return "middle";
+            }
+            if (product.getPrice() > 1000) {
+                return "high";
+            }
+            return null;
+        })));
+        for (String key : groupByProduct.keySet()) {
+            List<Product> products = groupByProduct.get(key);
+            Double priceAverage = products.stream().mapToDouble(prod -> prod.getPrice()).average().orElse(0.0);
+            System.out.println(key + " " + priceAverage);
+        }
+
     }
 }
