@@ -48,6 +48,14 @@ public class Main {
        List<String> names =  productList.stream().sorted(Comparator.comparing(Product::getPrice).reversed()).map(name-> name.getName()).limit(2).collect(Collectors.toList());
         System.out.println(names.toString());
 
+      /*
+            Question: You have a list of Product objects, each containing a name and a price.
+             How can you use the Stream API to calculate the total price of all products whose names contain the letter "a"?
+         */
+        double a = productList.stream().filter(product -> product.getName().contains("a")).mapToDouble(product -> product.getPrice()).sum();
+        System.out.println(a);
+
+
 
     }
 }
