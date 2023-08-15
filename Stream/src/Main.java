@@ -3,6 +3,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.groupingBy;
 
@@ -107,6 +108,41 @@ public class Main {
             Double priceAverage = products.stream().mapToDouble(prod -> prod.getPrice()).average().orElse(0.0);
             System.out.println(key + " " + priceAverage);
         }
+
+
+        /* Question: Find the average age of the oldest two employees for each department in a list of employees.
+        Suppose you have a class Employee with attributes name, age, and department.*/
+        List<Employee> employees = new ArrayList<>();
+
+            employees.add(new Employee("John", 28, "HR"));
+            employees.add(new Employee("Emily", 32, "IT"));
+            employees.add(new Employee("Michael", 35, "IT"));
+            employees.add(new Employee("Sophia", 30, "Sales"));
+            employees.add(new Employee("William", 40, "Sales"));
+            employees.add(new Employee("Olivia", 29, "HR"));
+            employees.add(new Employee("Liam", 37, "IT"));
+
+        Stream<List<Employee>> listStream = employees.stream().collect(groupingBy(Employee::getDepartment)).values()
+                .stream().map(listOfemp -> listOfemp
+                        .stream().sorted(Comparator.comparing(Employee::getAge).reversed()).limit(2)
+                        .collect(Collectors.toList())
+                );
+
+        Map<String, List<Employee>> departmentToEmployees = employees.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment,
+                        Collectors.collectingAndThen(
+                                Collectors.toList(),
+                                list -> list.stream()
+                                        .sorted(Comparator.comparing(Employee::getAge).reversed()).limit(2)
+                                        .collect(Collectors.toList())
+                        )
+                ));
+        for (String key : departmentToEmployees.keySet()) {
+            List<Employee> filterEmp = departmentToEmployees.get(key);
+            Double averageAge = filterEmp.stream().mapToDouble(Employee::getAge).average().orElse(0.0);
+            System.out.println(key + " " + averageAge);
+        }
+
 
     }
 }
