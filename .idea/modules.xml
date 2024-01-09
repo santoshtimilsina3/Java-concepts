@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-      <module fileurl="file://$PROJECT_DIR$/.idea/Java Concept practices.iml" filepath="$PROJECT_DIR$/.idea/Java Concept practices.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Stream/Stream.iml" filepath="$PROJECT_DIR$/Stream/Stream.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/MULTI-THREADING.iml" filepath="$PROJECT_DIR$/MULTI-THREADING.iml" />
->>>>>>> origin/master
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java-concepts.iml" filepath="$PROJECT_DIR$/.idea/Java-concepts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-reflection/java-reflection.iml" filepath="$PROJECT_DIR$/java-reflection/java-reflection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reflection/reflection.iml" filepath="$PROJECT_DIR$/reflection/reflection.iml" />
     </modules>
   </component>
 </project>
