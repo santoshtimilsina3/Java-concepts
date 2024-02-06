@@ -39,5 +39,10 @@ after java 10 copyOf is available and more optimized than  Collections.unmodifia
  */
     }
 
+    public Customer getCustomer(String name) {
+//        return this.records.get(name); if this returned user can mutate the records
+        return new Customer(this.records.get(name));
+    }
+
 
 }
