@@ -26,4 +26,8 @@ public class CustomerRecords implements Iterable<Customer> {
     public Iterator<Customer> iterator() {
         return this.records.values().iterator();
     }
+
+    public HashMap<String, Customer> copyRecord() {
+        return new HashMap<String, Customer>(records);
+    }
 }

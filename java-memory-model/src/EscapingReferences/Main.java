@@ -15,11 +15,10 @@ public class Main {
             System.out.println(next);
         }
 
-        /* Not totally solves the problem but makes it difficut
-        Iterator<Customer> iterator = customers.iterator();
-        iterator.next();
-        iterator.remove();
-         * */
+        customers.getCustomers().clear();
+        for (Customer cust : customers.copyRecord().values()) {
+            System.out.println(cust);
+        }
 
     }
 }
