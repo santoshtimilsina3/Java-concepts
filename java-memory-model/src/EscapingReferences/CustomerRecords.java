@@ -2,6 +2,7 @@ package EscapingReferences;
 
 import EscapingReferences.customerImplementation.Customer;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -30,4 +31,13 @@ public class CustomerRecords implements Iterable<Customer> {
     public HashMap<String, Customer> copyRecord() {
         return new HashMap<String, Customer>(records);
     }
+
+    public Map<String, Customer> unmodifiableCollection() {
+        return Collections.unmodifiableMap(this.records);
+/*    return  Map.copyOf(this.records);
+after java 10 copyOf is available and more optimized than  Collections.unmodifiableMap()
+ */
+    }
+
+
 }

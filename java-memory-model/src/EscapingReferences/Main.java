@@ -2,8 +2,6 @@ package EscapingReferences;
 
 import EscapingReferences.customerImplementation.Customer;
 
-import java.util.Iterator;
-
 public class Main {
     public static void main(String[] args) {
         CustomerRecords customers = new CustomerRecords();
@@ -15,10 +13,16 @@ public class Main {
             System.out.println(next);
         }
 
-        customers.getCustomers().clear();
         for (Customer cust : customers.copyRecord().values()) {
             System.out.println(cust);
         }
+
+
+        customers.getCustomers().clear();
+        for (Customer cust : customers.unmodifiableCollection().values()) {
+            System.out.println(cust);
+        }
+
 
     }
 }
