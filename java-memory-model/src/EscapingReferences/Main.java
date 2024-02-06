@@ -23,6 +23,7 @@ public class Main {
             System.out.println(cust);
         }
 
-
+        ReadonlyCustomer santosh = customers.findCust("santosh");
+        System.out.println(santosh);
     }
 }

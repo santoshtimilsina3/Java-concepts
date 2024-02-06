@@ -18,9 +18,6 @@ public class Customer implements ReadonlyCustomer {
         this.name = name;
     }
 
-    public Customer(ReadonlyCustomer c) {
-        this.name = c.getName();
-    }
 
     public Customer(Customer customer) {
         this.name = customer.getName();
@@ -31,4 +28,7 @@ public class Customer implements ReadonlyCustomer {
         return name;
     }
 
+    public Customer(ReadonlyCustomer c) {
+        this.name = c.getName();
+    }
 }

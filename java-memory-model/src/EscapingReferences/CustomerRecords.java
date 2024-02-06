@@ -44,5 +44,9 @@ after java 10 copyOf is available and more optimized than  Collections.unmodifia
         return new Customer(this.records.get(name));
     }
 
+    public ReadonlyCustomer findCust(String name) {
+        return new Customer(records.get(name));
+    }
+
 
 }
